@@ -552,18 +552,20 @@ function PromiseExample() {
 
   // ÖRNEK 1: Temel Promise Oluşturma
   // Promise constructor'ı iki parametre alır: resolve (başarı) ve reject (hata)
-  const basicPromise = new Promise((resolve, reject) => {
-    // Promise içinde asenkron bir işlem simüle ediyoruz
-    setTimeout(() => {
-      const success = true; // Bu değeri false yaparak reject durumunu test edebilirsiniz
-      
-      if (success) {
-        resolve("İşlem başarılı!"); // Başarılı durumda resolve çağrılır
-      } else {
-        reject(new Error("Bir hata oluştu!")); // Hata durumunda reject çağrılır
-      }
-    }, 2000); // 2 saniye gecikme
-  });
+  const createBasicPromise = () => {
+    return new Promise((resolve, reject) => {
+      // Promise içinde asenkron bir işlem simüle ediyoruz
+      setTimeout(() => {
+        const success = true; // Bu değeri false yaparak reject durumunu test edebilirsiniz
+        
+        if (success) {
+          resolve("İşlem başarılı!"); // Başarılı durumda resolve çağrılır
+        } else {
+          reject(new Error("Bir hata oluştu!")); // Hata durumunda reject çağrılır
+        }
+      }, 2000); // 2 saniye gecikme
+    });
+  };
 
   // ÖRNEK 2: Promise Chain (Promise Zinciri)
   // then() metodları ile zincirleme işlemler yapılabilir
